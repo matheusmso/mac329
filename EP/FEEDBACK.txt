@@ -1,0 +1,47 @@
+====================================
+João Francisco Lino Daniel - 7578279
+Mateus dos Anjos           - 9298191 
+Matheus Oliveira           - 8642821
+Victor Sprengel            - 9298002  
+====================================
+
+-- Fase 1 --
+
+    Nesta fase, o objetivo era construir a parte aritmética da ULA, que consta
+das operações ADIÇÃO, SUBTRAÇÃO, MULTIPLICAÇÃO, DIVISÃO e RESTO DE DIVISÃO,
+além de fazer a seleção da operação, por meio de um MULTIPLEXER 8x3.
+    Em reunião, foi decidido que cada membro teria uma atribuição e faria sua
+parte individualmente, para depois juntarmos os circuitos em um arquivo único.
+Como não havia nenhuma experiência com a plataforma (LogiSim) e ainda pouca
+familiaridade com a matéria, percebemos, depois, que a divisão não havia sido
+muito equilibrada. Isso nos levou à conclusão que esse modelo não seria seguido
+novamente na fase seguinte.
+    Após cada um ter feito sua atribuição, juntamos os arquivos e cada um foi
+explicando o processo de montagem para os demais membros, para que todos tivessem
+conhecimento de todos os circuitos e de suas implementações.
+
+
+-- Fase 2 --
+
+    Agora, tinhamos o objetivo de implementar uma parte maior e mais significativa
+do programa: a parte sequencial do circuito. Pela experiência anterior, resolvemos
+tentar implementar os circuitos em conjunto, numa reunião presencial.
+    Esta decisão foi bem tomada, visto que esta nova fase era de um grau de
+dificuldade maior em relação à anterior - foi bom ter todos os colegas reunidos
+para debater ideias para resolução. Por exemplo, a montagem do Controler foi bem
+desafiadora.
+
+-- Fase 3 --
+
+    Para finalizar, faltava apenas implementar alguns multiplexers adequados às
+situações e arrematar com alguns saltos condicionais (operações de lógica) e o
+tratamento de entradas e saídas do programa.
+    Novamente optamos por trabalhar em conjunto - sem divisão de tarefas. Porém,
+no dia marcado, não pudemos ter todos os membros presentes, de modo que a divisão
+de tarefas foi inevitável.
+    As pessoas que conseguiram se encontrar fizeram boa parte da fase 3 juntas,
+basicamente implementando os jumps condicionais e acoplando a ALU no controlador.
+    Faltava agora adaptar a ALU da fase 1 para uma de 16 bits, Entrada/Saida e 
+realizar testes. Essas tarefas foram divididas entre as pessoas que não puderam 
+comparecer e eventualmente o trabalho foi completado.
+

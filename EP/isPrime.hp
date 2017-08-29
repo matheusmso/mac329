@@ -1,0 +1,52 @@
+1fff
+3322    jmp pra raiz, armazena em fe
+0bfe
+16fd
+
+360c    jmp pra fora do bloco do loop (cond)
+0bff
+19fe
+370c    jmp pra fora do bloco do loop (break)
+
+0bfe
+15fc
+0cfe
+3302    jmp pro começo do loop
+
+0bfe
+16fd
+3618
+0bfa
+
+0cfb
+3320
+0bfc
+0cfb
+
+29fb
+4600    stp
+0bff
+0c63
+
+0b60
+0c62
+0b63
+0c61
+
+0b61    aqui
+1662
+1660
+342b    pula pro print *bla*
+
+0b62
+1560
+0c62
+0b63
+
+1862
+0c61
+3320    pula pro começo do loop *aqui*
+0b62    bla
+
+0cfd
+3302    ret

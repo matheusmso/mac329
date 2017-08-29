@@ -1,0 +1,109 @@
+--- ADIÇÃO ---
+Na implementação do EP2, ainda com 8 bits, foi estruturada
+com um halfAdder para os dois bits menos significativos - a saber,
+a0 e b0 -, e fullAdders para os demais bits - a1-7 e b1-7.
+Para lidar com o overflow, foi feito um XOR entre Cin e Cout do 8o
+adder.
+
+
+--- SUBTRAÇÃO ---
+Foi implementado apenas uma ADIÇÃO de A com -B (seguindo o padrão de
+complemento de 2).
+
+
+--- MULTIPLICAÇÃO ---
+A implementação segue o arcabouço fundamental, ensinado nos
+primeiros anos de escola:
+            
+        12          12 x 12 = 12 x (2 + 10) = 12 x 2 + 12 x 10 =
+        12 X        = 24 + 120 = 144
+    ---------
+        24
+       120 +
+    ---------
+       144
+
+Nesta operação, a verificação do sinal do resultado é feita 
+separadamente do cálculo da magnitude, ou seja, a operação é feita
+em módulo.
+
+
+--- DIVISÃO E RESTO ---
+Assim como a MULTIPLICAÇÃO, DIVISÃO E RESTO também são feitos em
+módulo, com o tratamento do sinal separadamente: o sinal do
+quociente é o mesmo feito na MULTIPLICAÇÃO, já o do resto é feito
+considerando os seguintes exemplos:
+
+    |  4 mod 3  = 4 mod (-3)
+    | -4 mod 3 != 4 mod 3
+
+Então, temos que levar em consideração apenas o sinal do dividendo
+para a determinação do sinal do resto.
+Para o algoritmo da divisão, foi implementada a subtração controlada,
+que fuciona de acordo o seguinte:
+
+    devolve a-b, se a-b >= 0
+    devolve 0, caso contrário
+
+
+--- PROTOCOLO DE PARADA ---
+Para que o circuito siga funcionando de acordo com a programação
+armazenada em memória, é necessário que um bit chamado CONT esteja
+"aceso" (contenha 1) - ele está presente em partes importantes do
+circuito. Caso haja um overflow em alguma operação ou seja dado o 
+comando de parada (stop), o bit CONT precisa ser "desligado" (passar
+a conter 0).
+A implementação desse sistema foi feita com dois flip-flops do tipo
+JK, que seguem as seguintes equações:
+
+    J1 = OW + STP   J2 = Q1     CONT = Q2' (negação de Q2)
+    K1 = 0          K2 = 0
+
+A partir do momento que CONT for setado em 0, o programa para de 
+rodar e, pelo circuito, vê-se que jamais teremos CONT em 1 novamente.
+
+
+--- FASE CONVERTER ---
+O ciclo de operações consiste em
+    fetch
+    decode
+    execute
+    pc++
+
+porém nem todas as partes do circuito atuam dentro desse ciclo -
+existem segmentos, por exemplo, que não dependem do execute. Para
+que todo o circuito esteja sincronizado, trabalhamos com dois
+contadores de tempo: clk e C++.
+O FASE CONVERTER cria, a partir do clk, o C++, para que C++ tenha
+um up a cada dois ups de clk.
+
+
+--- PC ---
+O PC é o ponteiro de instrução. Seu comportamento padrão é ser
+incrementado a cada up de C++, porém existem operações que alteram
+seu funcionamento:
+
+    STP o zera
+    JMP desliga o incremento, liga sua porta de load e carrega o
+argumento do JMP, END-I
+
+
+--- ACC ---
+Sua porta de load é ligada por LDA ou alguma operação aritmética, a
+saber ADD, SUB, MUL, DIV, REM. Captamos sua saída *assíncrona* em IN
+
+
+--- IR ---
+Indica a operação no fetch (quando há up de C++ e de clk) e,
+diferentemente de PC, não sofre nenhuma alteração entre dois fetchs.
+
+
+--- CTRL ---
+Faz o decode da operação e do endereço de aplicação, e devolve o
+resultado caso haja algum (caso de operações aritméticas).
+
+
+--- RAM ---
+Aponta sempre para o mesmo lugar de PC (END). Tem seu tempo
+controlado por C++. As operações de INN e STD habilitam sua entrada.
+

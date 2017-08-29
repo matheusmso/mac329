@@ -1,0 +1,22 @@
+1f63
+0b60
+0c62
+0b63
+
+0c61
+0b61    // quo - div - 1 > O
+1662    //
+1660    //
+
+3410    // jle pro fim do loop
+0b62    // div++                    // corpo do loop
+1560    //                          //
+0c62    //                          //
+
+0b63    // quo = NUM / div;         //
+1862    //                          //
+0c61    //                          //
+3305    // volta pra 6a instrução   //
+
+2962    // print div
+4600    // stop

@@ -1,0 +1,27 @@
+15 - soma
+16 - sub
+17 - mul
+18 - div
+19 - rem
+1f - inn
+29 - prn
+34 - jle
+35 - jdz
+36 - jgt
+37 - jeq
+38 - jlt
+39 - jge
+0b - lda ab -> acc
+0c - sta acc -> ab
+32 - nop
+33 - jmp
+46 - stp
+
+int num = 2;
+int test = inn;
+while (num < inn) {
+    if (inn%num == 0)
+        NAO PRIMO
+    num++
+if (num == inn)
+    PRIMO
